@@ -1,59 +1,59 @@
-const SmeeClient = require('smee-client')
-const { exec } = require('child_process')
+(async () => {
+  // ESM csomag dinamikus importtal (CJS projektben ez kell)
+  const SmeeClient = (await import('smee-client')).default;
+  const { exec } = require('child_process');
+  const http = require('http');
 
-// Function to execute git pull
-function executeGitPull() {
-  console.log('Received webhook - executing git pull...')
-  
-  exec('git pull origin master', (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error executing git pull: ${error.message}`)
-      return
-    }
-    if (stderr) {
-      console.error(`Git pull stderr: ${stderr}`)
-      return
-    }
-    console.log(`Git pull successful: ${stdout}`)
-  })
-}
+  // Function to execute git pull
+  function executeGitPull() {
+    console.log('Received webhook - executing git pull...');
 
-// Create a simple HTTP server to receive webhook events
-const http = require('http')
+    exec('git pull origin master', (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error executing git pull: ${error.message}`);
+        return;
+      }
+      if (stderr) {
+        console.error(`Git pull stderr: ${stderr}`);
+        return;
+      }
+      console.log(`Git pull successful: ${stdout}`);
+    });
+  }
 
-const server = http.createServer((req, res) => {
-  // Log the incoming request
-  console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`)
-  
-  // Execute git pull for any incoming request
-  executeGitPull()
-  
-  // Send response
-  res.writeHead(200, { 'Content-Type': 'text/plain' })
-  res.end('Webhook received - git pull executed\n')
-})
+  // Create a simple HTTP server to receive webhook events
+  const server = http.createServer((req, res) => {
+    console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
 
-// Start the server on a random available port
-server.listen(0, () => {
-  const port = server.address().port
-  console.log(`Webhook server listening on port ${port}`)
-  
-  // Configure smee to forward to our local server
-  const smee = new SmeeClient({
-    source: 'https://smee.io/MJrgOjEFCSnbJULO',
-    target: `http://localhost:${port}`,
-    logger: console
-  })
+    // Execute git pull for each request
+    executeGitPull();
 
-  const events = smee.start()
-  
-  // Handle graceful shutdown
-  process.on('SIGINT', () => {
-    console.log('\nShutting down...')
-    events.close()
-    server.close(() => {
-      console.log('Server closed')
-      process.exit(0)
-    })
-  })
-})
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Webhook received - git pull executed\n');
+  });
+
+  // Start server on any free port
+  server.listen(0, () => {
+    const port = server.address().port;
+    console.log(`Webhook server listening on port ${port}`);
+
+    // Start Smee forwarder
+    const smee = new SmeeClient({
+      source: 'https://smee.io/MJrgOjEFCSnbJULO',
+      target: `http://localhost:${port}`,
+      logger: console
+    });
+
+    const events = smee.start();
+
+    // Graceful shutdown
+    process.on('SIGINT', () => {
+      console.log('\nShutting down...');
+      events.close();
+      server.close(() => {
+        console.log('Server closed');
+        process.exit(0);
+      });
+    });
+  });
+})();
