@@ -5,7 +5,7 @@ const { exec } = require('child_process')
 function executeGitPull() {
   console.log('Received webhook - executing git pull...')
   
-  exec('git pull', (error, stdout, stderr) => {
+  exec('git pull origin master', (error, stdout, stderr) => {
     if (error) {
       console.error(`Error executing git pull: ${error.message}`)
       return
