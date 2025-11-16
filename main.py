@@ -5,7 +5,7 @@ import os
 app = FastAPI()
 
 # A folder neve, ahonnan betölti a fájlokat
-MODULE_DIR = "feladat"
+MODULE_DIR = ""
 
 # Kilistázzuk az összes .py fájlt (kivéve __init__.py)
 modules = [
