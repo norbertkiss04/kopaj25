@@ -1,0 +1,11 @@
+{
+  "name": "kopaj25",
+  "version": "1.0.0",
+  "description": "Project with Python FastAPI server",
+  "scripts": {
+    "start": "source venv/bin/activate && uvicorn server.server:app --host 0.0.0.0 --port 8000 --reload",
+    "push": "git add . && git commit -m \"audocommit\" && git push origin master"
+  },
+  "author": "",
+  "license": "ISC"
+}
