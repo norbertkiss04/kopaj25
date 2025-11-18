@@ -13,4 +13,4 @@ router = APIRouter( prefix="/ground/task1")
 
 @router.post("")
 def return_status_ok(request: Request):
-    return 200
+    return HTTPStatus.OK
