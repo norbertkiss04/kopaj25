@@ -12,5 +12,33 @@
     },
     "query_params": {},
     "body": "move"
+  },
+  {
+    "timestamp": "2025-11-18T20:18:37.524918",
+    "method": "POST",
+    "path": "http://172.22.89.119:1234/level2/task2",
+    "headers": {
+      "content-length": "6",
+      "host": "172.22.89.119:1234",
+      "user-agent": "Java-http-client/17.0.9",
+      "content-type": "text/plain",
+      "task-description": "Return the word in the new language. By the way here you have 1 word from the new language: bad=ko"
+    },
+    "query_params": {},
+    "body": "person"
+  },
+  {
+    "timestamp": "2025-11-18T20:19:07.656186",
+    "method": "POST",
+    "path": "http://172.22.89.119:1234/level2/task2",
+    "headers": {
+      "content-length": "4",
+      "host": "172.22.89.119:1234",
+      "user-agent": "Java-http-client/17.0.9",
+      "content-type": "text/plain",
+      "task-description": "Return the word in the new language. By the way here you have 1 word from the new language: world=mu"
+    },
+    "query_params": {},
+    "body": "good"
   }
 ]

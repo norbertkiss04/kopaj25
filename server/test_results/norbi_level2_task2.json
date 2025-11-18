@@ -1,0 +1,92 @@
+{
+  "timestamp": "2025-11-18T20:23:28.013644",
+  "task_module": "tasks.norbi.level2_task2",
+  "input_json": "level2_task2_post.json",
+  "num_requests": 3,
+  "results": [
+    {
+      "request_index": 1,
+      "request": {
+        "timestamp": "2025-11-18T20:18:07.399976",
+        "method": "POST",
+        "path": "http://172.22.89.119:1234/level2/task2",
+        "headers": {
+          "content-length": "4",
+          "host": "172.22.89.119:1234",
+          "user-agent": "Java-http-client/17.0.9",
+          "content-type": "text/plain",
+          "task-description": "Return the word in the new language. By the way here you have 1 word from the new language: food=fi"
+        },
+        "query_params": {},
+        "body": "move"
+      },
+      "response": {
+        "status_code": 200,
+        "headers": {
+          "content-length": "7",
+          "content-type": "text/plain; charset=utf-8"
+        },
+        "body": {
+          "text": "liikkua",
+          "note": "non-JSON response"
+        }
+      }
+    },
+    {
+      "request_index": 2,
+      "request": {
+        "timestamp": "2025-11-18T20:18:37.524918",
+        "method": "POST",
+        "path": "http://172.22.89.119:1234/level2/task2",
+        "headers": {
+          "content-length": "6",
+          "host": "172.22.89.119:1234",
+          "user-agent": "Java-http-client/17.0.9",
+          "content-type": "text/plain",
+          "task-description": "Return the word in the new language. By the way here you have 1 word from the new language: bad=ko"
+        },
+        "query_params": {},
+        "body": "person"
+      },
+      "response": {
+        "status_code": 200,
+        "headers": {
+          "content-length": "6",
+          "content-type": "text/plain; charset=utf-8"
+        },
+        "body": {
+          "text": "사람",
+          "note": "non-JSON response"
+        }
+      }
+    },
+    {
+      "request_index": 3,
+      "request": {
+        "timestamp": "2025-11-18T20:19:07.656186",
+        "method": "POST",
+        "path": "http://172.22.89.119:1234/level2/task2",
+        "headers": {
+          "content-length": "4",
+          "host": "172.22.89.119:1234",
+          "user-agent": "Java-http-client/17.0.9",
+          "content-type": "text/plain",
+          "task-description": "Return the word in the new language. By the way here you have 1 word from the new language: world=mu"
+        },
+        "query_params": {},
+        "body": "good"
+      },
+      "response": {
+        "status_code": 200,
+        "headers": {
+          "content-length": "3",
+          "content-type": "text/plain; charset=utf-8"
+        },
+        "body": {
+          "text": "bon",
+          "note": "non-JSON response"
+        }
+      }
+    }
+  ]
+}

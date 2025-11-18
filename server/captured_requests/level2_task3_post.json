@@ -12,5 +12,33 @@
     },
     "query_params": {},
     "body": "Soap bar (distinct from deodorant)"
+  },
+  {
+    "timestamp": "2025-11-18T20:18:37.523022",
+    "method": "POST",
+    "path": "http://172.22.89.119:1234/level2/task3",
+    "headers": {
+      "content-length": "6",
+      "host": "172.22.89.119:1234",
+      "user-agent": "Java-http-client/17.0.9",
+      "content-type": "text/plain",
+      "task-description": "Return ONLY the ID (number) of the picture where the object can be found. https://drive.google.com/file/d/1T5vOCoZ3aIhLEgQKf3sBygsiP6Vl_yko/view?usp=drive_link"
+    },
+    "query_params": {},
+    "body": "Candle"
+  },
+  {
+    "timestamp": "2025-11-18T20:19:07.653837",
+    "method": "POST",
+    "path": "http://172.22.89.119:1234/level2/task3",
+    "headers": {
+      "content-length": "5",
+      "host": "172.22.89.119:1234",
+      "user-agent": "Java-http-client/17.0.9",
+      "content-type": "text/plain",
+      "task-description": "Return ONLY the ID (number) of the picture where the object can be found. https://drive.google.com/file/d/1T5vOCoZ3aIhLEgQKf3sBygsiP6Vl_yko/view?usp=drive_link"
+    },
+    "query_params": {},
+    "body": "Apple"
   }
 ]
