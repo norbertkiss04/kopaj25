@@ -16,7 +16,7 @@ def ask_ai(text_input):
     }
 
     try:
-        response = requests.post(url, json=body, headers=headers)
+        response = requests.post(url, json=body, headers=headers, timeout=30)
         chat_completion = response.json()
         if 'error' in chat_completion:
             print(f"Error from AI service: {chat_completion['error']['message']}")
