@@ -2,7 +2,7 @@ import requests
 
 PROXY_IP = "172.22.89.120"
 PROXY_PORT = 4000
-TOKEN = "sk-XC8ushILNmfCZObBw_WMIQ"
+TOKEN = "sk-XC8ushILNmfCZObBw_WMlQ"
 
 def ask_ai(text_input):
     url = f"http://{PROXY_IP}:{PROXY_PORT}/v1/chat/completions"

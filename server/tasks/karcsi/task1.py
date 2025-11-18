@@ -1,16 +1,10 @@
-from http import HTTPStatus
-from typing import Dict, Any, List
-
-from fastapi import APIRouter, Request
-from pydantic import BaseModel
+from fastapi import APIRouter
+from fastapi.responses import Response
 
 
-router = APIRouter( prefix="/ground/task1")
+router = APIRouter(prefix="/ground/task1")
 
-# @router.get("/ground/task3")
-# def ground3(request):
-#     print(request.query_params)
 
 @router.post("")
-def return_status_ok(request: Request):
-    return HTTPStatus.OK
+def return_status_ok():
+    return Response(status_code=200)
