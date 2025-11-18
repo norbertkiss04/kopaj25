@@ -33,5 +33,75 @@
         }
       ]
     }
+  },
+  {
+    "timestamp": "2025-11-18T19:48:16.654255",
+    "method": "POST",
+    "path": "http://172.22.89.119:1234/level1/task3",
+    "headers": {
+      "content-length": "799",
+      "host": "172.22.89.119:1234",
+      "user-agent": "Java-http-client/17.0.9",
+      "content-type": "application/json",
+      "task-description": "https://drive.google.com/file/d/1CrOAgnnm216SSjbZU57Vd6dX0t_KJkce/view?usp=share_link"
+    },
+    "query_params": {},
+    "body": {
+      "id": "4012f0fc-ba04-4013-8667-2815199f43b5",
+      "code": "package main\n\nimport \"strconv\"\n\ntype StringProcessor struct {\n    text string\n}\n\nfunc (sp *StringProcessor) ParseInt() int {\n    num, err := strconv.Atoi(sp.text)\n    if err != nil {\n        return 0\n    }\n    return num\n}\n\nfunc (sp *StringProcessor) ParseFloat() float64 {\n    num, err := strconv.ParseFloat(sp.text, 64)\n    return num\n}",
+      "answers": [
+        {
+          "letter": "A",
+          "answer": "strconv.Atoi doesn't exist"
+        },
+        {
+          "letter": "B",
+          "answer": "Missing return in if block of ParseInt"
+        },
+        {
+          "letter": "C",
+          "answer": "ParseFloat returns error but it's not checked/returned (unused variable 'err')"
+        },
+        {
+          "letter": "D",
+          "answer": "Cannot have multiple return values"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-18T19:48:47.265270",
+    "method": "POST",
+    "path": "http://172.22.89.119:1234/level1/task3",
+    "headers": {
+      "content-length": "799",
+      "host": "172.22.89.119:1234",
+      "user-agent": "Java-http-client/17.0.9",
+      "content-type": "application/json",
+      "task-description": "https://drive.google.com/file/d/1CrOAgnnm216SSjbZU57Vd6dX0t_KJkce/view?usp=share_link"
+    },
+    "query_params": {},
+    "body": {
+      "id": "4012f0fc-ba04-4013-8667-2815199f43b5",
+      "code": "package main\n\nimport \"strconv\"\n\ntype StringProcessor struct {\n    text string\n}\n\nfunc (sp *StringProcessor) ParseInt() int {\n    num, err := strconv.Atoi(sp.text)\n    if err != nil {\n        return 0\n    }\n    return num\n}\n\nfunc (sp *StringProcessor) ParseFloat() float64 {\n    num, err := strconv.ParseFloat(sp.text, 64)\n    return num\n}",
+      "answers": [
+        {
+          "letter": "A",
+          "answer": "strconv.Atoi doesn't exist"
+        },
+        {
+          "letter": "B",
+          "answer": "Missing return in if block of ParseInt"
+        },
+        {
+          "letter": "C",
+          "answer": "ParseFloat returns error but it's not checked/returned (unused variable 'err')"
+        },
+        {
+          "letter": "D",
+          "answer": "Cannot have multiple return values"
+        }
+      ]
+    }
   }
 ]
