@@ -1,0 +1,37 @@
+[
+  {
+    "timestamp": "2025-11-18T19:47:47.166263",
+    "method": "POST",
+    "path": "http://172.22.89.119:1234/level1/task3",
+    "headers": {
+      "content-length": "823",
+      "host": "172.22.89.119:1234",
+      "user-agent": "Java-http-client/17.0.9",
+      "content-type": "application/json",
+      "task-description": "https://drive.google.com/file/d/1CrOAgnnm216SSjbZU57Vd6dX0t_KJkce/view?usp=share_link"
+    },
+    "query_params": {},
+    "body": {
+      "id": "9ab093fe-2e73-455d-b9a7-0ee4c1ff3f35",
+      "code": "enum Status {\n    Active,\n    Inactive,\n    Pending\n}\n\nclass Task {\n    private title: string;\n    private status: Status;\n    \n    constructor(title: string) {\n        this.title = title;\n        this.status = Status.Pending;\n    }\n    \n    setStatus(status: Status): void {\n        this.status = status\n    }\n    \n    isActive(): boolean {\n        return this.status === Status.Active;\n    }\n}",
+      "answers": [
+        {
+          "letter": "A",
+          "answer": "enum is not a valid TypeScript keyword"
+        },
+        {
+          "letter": "B",
+          "answer": "Cannot use === with enum values"
+        },
+        {
+          "letter": "C",
+          "answer": "Status type must be string"
+        },
+        {
+          "letter": "D",
+          "answer": "Missing semicolon after assignment in setStatus"
+        }
+      ]
+    }
+  }
+]

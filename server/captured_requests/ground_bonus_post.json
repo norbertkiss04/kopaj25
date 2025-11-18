@@ -26,5 +26,19 @@
     },
     "query_params": {},
     "body": null
+  },
+  {
+    "timestamp": "2025-11-18T19:43:46.088658",
+    "method": "POST",
+    "path": "http://172.22.89.119:1234/ground/bonus",
+    "headers": {
+      "content-length": "0",
+      "host": "172.22.89.119:1234",
+      "user-agent": "Java-http-client/17.0.9",
+      "content-type": "text/plain",
+      "task-description": "How many different sports can you spot in the company trailer video? Check social media channels for the video."
+    },
+    "query_params": {},
+    "body": null
   }
 ]
