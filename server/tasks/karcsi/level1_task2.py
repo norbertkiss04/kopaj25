@@ -1,61 +1,78 @@
-from fastapi import APIRouter
-from fastapi.responses import Response
-
+from fastapi import APIRouter, Request
+from typing import List, Optional
+from collections import deque
+import json
 
 router = APIRouter(prefix="/level1/task2")
 
-def zigzag_tree_solve(arr):
-    """
-    arr: list[int] – a bináris fa level-order reprezentációja, -1 üres csomópont.
-    Visszatérés: a csomópontok zigzag sorrendben.
-    """
-    if not arr:
-        return []
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
-    # A gyökér üres -> üres kimenet
-    if arr[0] == -1:
-        return []
+def build_tree(arr: List[int]) -> Optional[TreeNode]:
+    if not arr or arr[0] == -1:
+        return None
+    
+    root = TreeNode(arr[0])
+    queue = deque([root])
+    i = 1
+    n = len(arr)
+    
+    while i < n:
+        curr = queue.popleft()
+        
+        # Left child
+        if i < n:
+            val = arr[i]
+            i += 1
+            if val != -1:
+                curr.left = TreeNode(val)
+                queue.append(curr.left)
+        
+        # Right child
+        if i < n:
+            val = arr[i]
+            i += 1
+            if val != -1:
+                curr.right = TreeNode(val)
+                queue.append(curr.right)
+                
+    return root
 
+def zigzag_level_order(root: Optional[TreeNode]) -> List[int]:
+    if not root:
+        return []
+    
     result = []
-    current_level = [0]  # indexek
+    queue = deque([root])
     left_to_right = True
-
-    while current_level:
-        next_level = []
-        level_values = []
-
-        for idx in current_level:
-            if idx >= len(arr):
-                continue
-            value = arr[idx]
-            if value == -1:
-                continue
-            level_values.append(value)
-
-            # gyermekek indexei
-            left = 2 * idx + 1
-            right = 2 * idx + 2
-
-            # -1 esetén a csomópontnak nincsenek gyermekei → csak akkor adjuk hozzá,
-            # ha a gyermekindex létezik ÉS nem -1.
-            if left < len(arr) and arr[left] != -1:
-                next_level.append(left)
-            if right < len(arr) and arr[right] != -1:
-                next_level.append(right)
-
-        if not level_values:
-            break
-
+    
+    while queue:
+        level_size = len(queue)
+        level_nodes = []
+        
+        for _ in range(level_size):
+            node = queue.popleft()
+            level_nodes.append(node.val)
+            
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+        
         if not left_to_right:
-            level_values.reverse()
-
-        result.extend(level_values)
+            level_nodes.reverse()
+            
+        result.extend(level_nodes)
         left_to_right = not left_to_right
-        current_level = next_level
-
+        
     return result
 
-
 @router.post("")
-def zigzag_tree(request):
-    return zigzag_tree_solve(request)
+async def zigzag_tree(request: Request):
+    body = await request.body()
+    arr = json.loads(body.decode('utf-8'))
+    root = build_tree(arr)
+    return zigzag_level_order(root)
