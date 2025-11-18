@@ -1,0 +1,16 @@
+[
+  {
+    "timestamp": "2025-11-18T20:12:09.363918",
+    "method": "POST",
+    "path": "http://172.22.89.119:1234/level1/bonus",
+    "headers": {
+      "content-length": "0",
+      "host": "172.22.89.119:1234",
+      "user-agent": "Java-http-client/17.0.9",
+      "content-type": "text/plain",
+      "task-description": "Where did the Bishop team travel to last time?"
+    },
+    "query_params": {},
+    "body": null
+  }
+]

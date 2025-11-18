@@ -1,0 +1,83 @@
+{
+  "timestamp": "2025-11-18T20:07:57.182674",
+  "task_module": "tasks.norbi.level1_task1",
+  "input_json": "level1_task1_post.json",
+  "num_requests": 3,
+  "results": [
+    {
+      "request_index": 1,
+      "request": {
+        "timestamp": "2025-11-18T19:47:46.498252",
+        "method": "POST",
+        "path": "http://172.22.89.119:1234/level1/task1",
+        "headers": {
+          "content-length": "17",
+          "host": "172.22.89.119:1234",
+          "user-agent": "Java-http-client/17.0.9",
+          "content-type": "text/plain",
+          "task-description": "https://drive.google.com/file/d/1ekJXNhxS98Wr3wgRC11PDkIaH5Ojyvd3/view?usp=drive_link"
+        },
+        "query_params": {},
+        "body": "0 452\n5 500\n5 733"
+      },
+      "response": {
+        "status_code": 200,
+        "headers": {
+          "content-length": "14",
+          "content-type": "application/json"
+        },
+        "body": "10 733 281 0"
+      }
+    },
+    {
+      "request_index": 2,
+      "request": {
+        "timestamp": "2025-11-18T19:48:16.652933",
+        "method": "POST",
+        "path": "http://172.22.89.119:1234/level1/task1",
+        "headers": {
+          "content-length": "17",
+          "host": "172.22.89.119:1234",
+          "user-agent": "Java-http-client/17.0.9",
+          "content-type": "text/plain",
+          "task-description": "https://drive.google.com/file/d/1ekJXNhxS98Wr3wgRC11PDkIaH5Ojyvd3/view?usp=drive_link"
+        },
+        "query_params": {},
+        "body": "0 548\n1 353\n4 177"
+      },
+      "response": {
+        "status_code": 200,
+        "headers": {
+          "content-length": "13",
+          "content-type": "application/json"
+        },
+        "body": "5 548 0 371"
+      }
+    },
+    {
+      "request_index": 3,
+      "request": {
+        "timestamp": "2025-11-18T19:48:46.811138",
+        "method": "POST",
+        "path": "http://172.22.89.119:1234/level1/task1",
+        "headers": {
+          "content-length": "25",
+          "host": "172.22.89.119:1234",
+          "user-agent": "Java-http-client/17.0.9",
+          "content-type": "text/plain",
+          "task-description": "https://drive.google.com/file/d/1ekJXNhxS98Wr3wgRC11PDkIaH5Ojyvd3/view?usp=drive_link"
+        },
+        "query_params": {},
+        "body": "0 7\n3 52\n2 68\n4 286\n2 193"
+      },
+      "response": {
+        "status_code": 200,
+        "headers": {
+          "content-length": "15",
+          "content-type": "application/json"
+        },
+        "body": "11 286 279 93"
+      }
+    }
+  ]
+}
