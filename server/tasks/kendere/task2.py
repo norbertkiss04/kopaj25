@@ -16,4 +16,4 @@ def two_sum(request: TwoSumRequest) -> Dict[str, Any]:
         if complement in num_to_index:
             return {"indices": [num_to_index[complement], i]}
         num_to_index[num] = i
-    return {"indices": [], "error": "No two sum solution found.asdassasadsadsda"}
+    return {"indices": [], "error": "No two sum solution found."}
