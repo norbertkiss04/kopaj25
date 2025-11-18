@@ -1,17 +1,15 @@
 import requests
 
-PROXY_IP = "172.22.89.120"
-PROXY_PORT = 4000
-TOKEN = "sk-XC8ushILNmfCZObBw_WMlQ"
+TOKEN = "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"
 
 def ask_ai(text_input):
-    url = f"http://{PROXY_IP}:{PROXY_PORT}/v1/chat/completions"
+    url = "https://openrouter.ai/api/v1/chat/completions"
     headers = {
         'Content-Type': 'application/json',
         'Authorization': f'Bearer {TOKEN}'
     }
     body = {
-        "model": "gpt-4.1-nano",
+        "model": "x-ai/grok-4-fast",
         "messages": [{"role": "user", "content": text_input}]
     }
 
