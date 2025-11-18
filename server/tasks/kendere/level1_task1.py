@@ -2,7 +2,7 @@ from fastapi import APIRouter, Body
 
 router = APIRouter(prefix="/level1/task1")
 
-@router.post("/")
+@router.post("")
 def hiking_stats(body: str = Body(..., media_type="text/plain")) -> str:
     lines = [line.strip() for line in body.splitlines() if line.strip()]
     segments = []
