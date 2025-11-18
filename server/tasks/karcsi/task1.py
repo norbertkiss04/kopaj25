@@ -1,3 +1,4 @@
+from http import HTTPStatus
 from typing import Dict, Any, List
 
 from fastapi import APIRouter
@@ -12,4 +13,4 @@ router = APIRouter( prefix="")
 
 @router.post("/ground/task1")
 def return_status_ok(request):
-    return 200
+    return HTTPStatus.OK
