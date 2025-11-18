@@ -1,49 +1,36 @@
-import os
-from openai import OpenAI
-
-api_key = "your-default-api-key-here"
-base_url = "https://api.openai.com/v1"
-
-client = OpenAI(
-    api_key=api_key,
-    base_url=base_url
-)
-
-response = client.chat.completions.create(
-    model="gpt-3.5-turbo",
-    messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Say this is a test"}
-    ]
-)
-
-print(response.choices[0].message.content)
-
-# Example using requests library instead of OpenAI client
 import requests
-import json
 
-headers = {
-    "Authorization": f"Bearer {api_key}",
-    "Content-Type": "application/json"
-}
+PROXY_IP = "172.22.89.120"
+PROXY_PORT = 4000
+TOKEN = "sk-XC8ushILNmfCZObBw_WMIQ"
 
-data = {
-    "model": "gpt-3.5-turbo",
-    "messages": [
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Say this is a test"}
-    ]
-}
+def ask_ai(text_input):
+    url = f"http://{PROXY_IP}:{PROXY_PORT}/v1/chat/completions"
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': f'Bearer {TOKEN}'
+    }
+    body = {
+        "model": "gpt-4.1-nano",
+        "messages": [{"role": "user", "content": text_input}]
+    }
 
-response_raw = requests.post(
-    f"{base_url}/chat/completions",
-    headers=headers,
-    json=data
-)
+    try:
+        response = requests.post(url, json=body, headers=headers)
+        chat_completion = response.json()
+        if 'error' in chat_completion:
+            print(f"Error from AI service: {chat_completion['error']['message']}")
+            return None
+        return chat_completion['choices'][0]['message']['content']
+    except requests.exceptions.RequestException as e:
+        print(f"Error from AI service: {e}")
+        return None
+    except ValueError as e:
+        print(f"Error from AI service: {e}")
+        return None
 
-if response_raw.status_code == 200:
-    content = response_raw.json()["choices"][0]["message"]["content"]
-    print(content)
-else:
-    print(f"Error: {response_raw.status_code} - {response_raw.text}")
+# Example usage
+if __name__ == "__main__":
+    response = ask_ai("Say this is a test")
+    if response:
+        print(response)
