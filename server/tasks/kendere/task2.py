@@ -1,19 +1,22 @@
 from fastapi import APIRouter
-from typing import List, Dict, Any
 from pydantic import BaseModel
+from typing import Dict
 
-router = APIRouter(prefix="/ground/task1")
+router = APIRouter(prefix="/ground/task2")
 
-class TwoSumRequest(BaseModel):
-    nums: List[int]
-    target: int
+class AlcoholRequest(BaseModel):
+    beers: int
+    shots: int
 
-@router.get("/")
-def two_sum(request: TwoSumRequest) -> Dict[str, Any]:
-    num_to_index = {}
-    for i, num in enumerate(request.nums):
-        complement = request.target - num
-        if complement in num_to_index:
-            return {"indices": [num_to_index[complement], i]}
-        num_to_index[num] = i
-    return {"indices": [], "error": "No two sum solution asd."}
+@router.post("/")
+def calculate_sobering_time(request: AlcoholRequest) -> Dict[str, float]:
+    # Alkohol növekedés (‰)
+    alcohol_level = request.beers * 0.15 + request.shots * 0.25
+
+    # Lebomlási idő (óra)
+    if alcohol_level <= 0:
+        return {"hours": 0.0}
+
+    hours = alcohol_level / 0.15
+
+    return {"hours": hours}
