@@ -9,6 +9,7 @@ def hiking_stats(body: str = Body(..., media_type="text/plain")) -> str:
 
     for line in lines:
         d, e = line.split()
+        # Távolság float, magasság int (a példa alapján)
         segments.append((float(d), int(e)))
 
     total_distance = sum(d for d, _ in segments)
@@ -25,6 +26,16 @@ def hiking_stats(body: str = Body(..., media_type="text/plain")) -> str:
         if diff > 0:
             total_ascent += diff
         else:
-            total_descent += -diff
+            # abs() használata elegánsabb
+            total_descent += abs(diff)
 
-    return f"{int(total_distance)} {max_elevation} {total_ascent} {total_descent}"
+    # SEGÉDFÜGGVÉNY A FORMÁZÁSHOZ:
+    # Ha a szám egész (pl. 13.0), akkor írjuk ki int-ként (13).
+    # Ha tört (pl. 13.5), akkor maradjon float.
+    def fmt(num):
+        if isinstance(num, float) and num.is_integer():
+            return str(int(num))
+        return str(num)
+
+    # Itt a javítás: nem kényszerítjük int-re a total_distance-t, hanem formázzuk
+    return f"{fmt(total_distance)} {max_elevation} {total_ascent} {total_descent}"
