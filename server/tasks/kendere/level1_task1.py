@@ -1,13 +1,9 @@
-from fastapi import APIRouter
-from typing import List
+from fastapi import APIRouter, Body
 
 router = APIRouter(prefix="/level1/task1")
 
-# Input: raw text (each line: "distance elevation")
-# Output: "total_distance max_elevation total_ascent total_descent"
-
-@router.post("")
-def hiking_stats(body: str) -> str:
+@router.post("/")
+def hiking_stats(body: str = Body(..., media_type="text/plain")) -> str:
     lines = [line.strip() for line in body.splitlines() if line.strip()]
     segments = []
 
