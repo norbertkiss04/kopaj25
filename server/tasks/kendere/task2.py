@@ -8,7 +8,7 @@ class AlcoholRequest(BaseModel):
     beers: int
     shots: int
 
-@router.post("/")
+@router.post("")
 def calculate_sobering_time(request: AlcoholRequest) -> Dict[str, float]:
     # Alkohol növekedés (‰)
     alcohol_level = request.beers * 0.15 + request.shots * 0.25
