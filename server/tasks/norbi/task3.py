@@ -7,6 +7,7 @@ root_dir = Path(__file__).parent.parent.parent.parent
 sys.path.insert(0, str(root_dir))
 
 from ai_example import ask_ai
+from fastapi.responses import Response
 
 router = APIRouter(prefix="/ground/task3")
 
@@ -25,7 +26,6 @@ async def identify_language(request: Request):
     )
 
     ai_response = ask_ai(prompt)
-    from fastapi.responses import Response
 
     # If AI returns nothing
     if not ai_response:
