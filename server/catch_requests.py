@@ -50,7 +50,8 @@ class CatchRequestsMiddleware(BaseHTTPMiddleware):
             except (json.JSONDecodeError, IOError):
                 existing = []
         
-        if len(existing) < 3:
+        max_instances = 50 if endpoint_name in ['level2_task2', 'level2_task3'] else 3
+        if len(existing) < max_instances:
             existing.append(request_info)
             try:
                 with open(filepath, 'w', encoding='utf-8') as f:

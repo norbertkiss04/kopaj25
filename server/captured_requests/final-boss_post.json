@@ -1,0 +1,41 @@
+[
+  {
+    "timestamp": "2025-11-18T21:22:05.433376",
+    "method": "POST",
+    "path": "http://172.22.89.119:1234/final-boss",
+    "headers": {
+      "content-length": "39",
+      "host": "172.22.89.119:1234",
+      "user-agent": "Java-http-client/17.0.9",
+      "content-type": "text/plain"
+    },
+    "query_params": {},
+    "body": "Do you accept the terms and conditions?"
+  },
+  {
+    "timestamp": "2025-11-18T21:22:35.479475",
+    "method": "POST",
+    "path": "http://172.22.89.119:1234/final-boss",
+    "headers": {
+      "content-length": "39",
+      "host": "172.22.89.119:1234",
+      "user-agent": "Java-http-client/17.0.9",
+      "content-type": "text/plain"
+    },
+    "query_params": {},
+    "body": "Do you accept the terms and conditions?"
+  },
+  {
+    "timestamp": "2025-11-18T21:23:05.471640",
+    "method": "POST",
+    "path": "http://172.22.89.119:1234/final-boss",
+    "headers": {
+      "content-length": "39",
+      "host": "172.22.89.119:1234",
+      "user-agent": "Java-http-client/17.0.9",
+      "content-type": "text/plain"
+    },
+    "query_params": {},
+    "body": "Do you accept the terms and conditions?"
+  }
+]
