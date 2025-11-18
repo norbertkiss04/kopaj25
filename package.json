@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Project with Python FastAPI server",
   "scripts": {
-    "start": "source venv/bin/activate && uvicorn server.server:app --host 0.0.0.0 --port 8000 --reload",
-    "start-kendere": "venv\\Scripts\\activate && uvicorn server.server:app --host 0.0.0.0 --port 8000 --reload",
+    "start": "source venv/bin/activate && uvicorn server.server:app --host 0.0.0.0 --port 1234 --reload",
+    "start-kendere": "venv\\Scripts\\activate && uvicorn server.server:app --host 0.0.0.0 --port 1234 --reload",
     "test": "source venv/bin/activate && python server/test_task.py",
     "push": "git add . && git commit -m \"audocommit\" && git push origin master"
   },

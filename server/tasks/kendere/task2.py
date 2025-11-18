@@ -2,13 +2,13 @@ from fastapi import APIRouter
 from typing import List, Dict, Any
 from pydantic import BaseModel
 
-router = APIRouter(prefix="/task2")
+router = APIRouter(prefix="/ground/task1")
 
 class TwoSumRequest(BaseModel):
     nums: List[int]
     target: int
 
-@router.post("/")
+@router.get("/")
 def two_sum(request: TwoSumRequest) -> Dict[str, Any]:
     num_to_index = {}
     for i, num in enumerate(request.nums):
