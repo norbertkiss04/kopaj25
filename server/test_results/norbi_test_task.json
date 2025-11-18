@@ -1,0 +1,125 @@
+{
+  "timestamp": "2025-11-18T15:08:55.754846",
+  "task_module": "tasks.norbi.test_task",
+  "input_json": "test_task_post.json",
+  "num_requests": 3,
+  "results": [
+    {
+      "request_index": 1,
+      "request": {
+        "timestamp": "2025-11-18T15:07:21.426812",
+        "method": "POST",
+        "path": "http://localhost:8000/test_task/",
+        "headers": {
+          "host": "localhost:8000",
+          "user-agent": "python-requests/2.32.5",
+          "accept-encoding": "gzip, deflate",
+          "accept": "*/*",
+          "connection": "keep-alive",
+          "content-type": "application/json",
+          "content-length": "37"
+        },
+        "query_params": {},
+        "body": {
+          "nums": [
+            2,
+            7,
+            11,
+            15
+          ],
+          "target": 9
+        }
+      },
+      "response": {
+        "status_code": 200,
+        "headers": {
+          "content-length": "17",
+          "content-type": "application/json"
+        },
+        "body": {
+          "indices": [
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "request_index": 2,
+      "request": {
+        "timestamp": "2025-11-18T15:07:36.434650",
+        "method": "POST",
+        "path": "http://localhost:8000/test_task/",
+        "headers": {
+          "host": "localhost:8000",
+          "user-agent": "python-requests/2.32.5",
+          "accept-encoding": "gzip, deflate",
+          "accept": "*/*",
+          "connection": "keep-alive",
+          "content-type": "application/json",
+          "content-length": "32"
+        },
+        "query_params": {},
+        "body": {
+          "nums": [
+            3,
+            2,
+            4
+          ],
+          "target": 6
+        }
+      },
+      "response": {
+        "status_code": 200,
+        "headers": {
+          "content-length": "17",
+          "content-type": "application/json"
+        },
+        "body": {
+          "indices": [
+            1,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "request_index": 3,
+      "request": {
+        "timestamp": "2025-11-18T15:07:51.441121",
+        "method": "POST",
+        "path": "http://localhost:8000/test_task/",
+        "headers": {
+          "host": "localhost:8000",
+          "user-agent": "python-requests/2.32.5",
+          "accept-encoding": "gzip, deflate",
+          "accept": "*/*",
+          "connection": "keep-alive",
+          "content-type": "application/json",
+          "content-length": "29"
+        },
+        "query_params": {},
+        "body": {
+          "nums": [
+            3,
+            3
+          ],
+          "target": 6
+        }
+      },
+      "response": {
+        "status_code": 200,
+        "headers": {
+          "content-length": "17",
+          "content-type": "application/json"
+        },
+        "body": {
+          "indices": [
+            0,
+            1
+          ]
+        }
+      }
+    }
+  ]
+}
