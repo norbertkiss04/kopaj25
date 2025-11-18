@@ -1,19 +1,28 @@
 from fastapi import APIRouter, Request
 from fastapi.responses import Response
-import re
+from ai_example import ask_ai
 
 router = APIRouter(prefix="/level2/task2")
 
 @router.post("")
 async def translate_word(request: Request):
     body = await request.body()
-    original_word = body.decode("utf-8").strip()
+    word = body.decode("utf-8").strip()
     task_desc = request.headers.get("task-description", "") or ""
 
-    match = re.search(r'([^\s=]+)\s=\s([^\s=]+)', task_desc)
-    if match:
-        new_lang_word = match.group(2)
-    else:
-        new_lang_word = original_word
+    prompt = (
+        f"{task_desc}\n\n"
+        f"You are given a fictional constructed language.\n"
+        f"There is EXACTLY ONE example mapping given above.\n"
+        f"Your task is to create the translation of the following English word "
+        f"in the SAME fictional language, using the example only as a style guide.\n\n"
+        f"Translate: {word}\n"
+        "Respond ONLY with the translated word, nothing else."
+    )
 
-    return Response(content=new_lang_word, media_type="text/plain")
+    ai_response = ask_ai(prompt)
+    if ai_response:
+        text = ai_response.strip().split()[0]
+        return Response(content=text, media_type="text/plain")
+
+    return Response(content="", media_type="text/plain")
