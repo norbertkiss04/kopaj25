@@ -26,16 +26,31 @@
     "body": "Do you accept the terms and conditions?"
   },
   {
-    "timestamp": "2025-11-18T21:23:05.471640",
+    "timestamp": "2025-11-18T21:43:38.010059",
     "method": "POST",
     "path": "http://172.22.89.119:1234/final-boss",
     "headers": {
-      "content-length": "39",
+      "content-length": "206",
       "host": "172.22.89.119:1234",
       "user-agent": "Java-http-client/17.0.9",
-      "content-type": "text/plain"
+      "content-type": "text/plain",
+      "task-description": "https://drive.google.com/file/d/1vxMdhNOjrzixNjQSCkE13gn2nNQZ7rfP/view"
     },
     "query_params": {},
-    "body": "Do you accept the terms and conditions?"
+    "body": "□■□■□♜□♚\n■□■♜■♟■♟\n♟♟□♟□♖□♕\n■□■♛♞□■□\n♙■□■□■□■\n■♙■□■□♙□\n□■♙■□■□♙\n■□■□■♖♔□\nwhite\n"
+  },
+  {
+    "timestamp": "2025-11-18T21:45:06.300982",
+    "method": "POST",
+    "path": "http://172.22.89.119:1234/final-boss",
+    "headers": {
+      "content-length": "206",
+      "host": "172.22.89.119:1234",
+      "user-agent": "Java-http-client/17.0.9",
+      "content-type": "text/plain",
+      "task-description": "https://drive.google.com/file/d/1vxMdhNOjrzixNjQSCkE13gn2nNQZ7rfP/view"
+    },
+    "query_params": {},
+    "body": "□■□■□♜□♚\n■□■♜■♟■♟\n♟♟□♟□♖□♕\n■□■♛♞□■□\n♙■□■□■□■\n■♙■□■□♙□\n□■♙■□■□♙\n■□■□■♖♔□\nwhite\n"
   }
 ]

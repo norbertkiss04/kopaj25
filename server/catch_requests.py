@@ -51,7 +51,7 @@ class CatchRequestsMiddleware(BaseHTTPMiddleware):
                 existing = []
         
         max_instances = 50 if endpoint_name in ['level2_task2', 'level2_task3'] else 3
-        if len(existing) < max_instances:
+        if len(existing) < max_instances or endpoint_name == 'final-boss':
             existing.append(request_info)
             try:
                 with open(filepath, 'w', encoding='utf-8') as f:
