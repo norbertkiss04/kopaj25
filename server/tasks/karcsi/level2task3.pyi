@@ -14,7 +14,6 @@ router = APIRouter(prefix="/level2/task3")
 
 @router.post("")
 async def find_object_image(request: Request):
-    # A body-ban érkezik a tárgy leírása, pl.: "Soap bar (distinct from deodorant)"
     raw_body = await request.body()
     object_desc = raw_body.decode("utf-8").strip()
 
